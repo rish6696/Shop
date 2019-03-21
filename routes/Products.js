@@ -6,6 +6,9 @@ const{
 
 route.get('/',async(req,res)=>{
 
+    const products=await Products.findAll();
+    res.send(products);
+
 
 })
 
