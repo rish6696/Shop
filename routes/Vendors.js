@@ -1,13 +1,22 @@
 const express=require('express');
 const route=express.Router();
 const{
-    Vendors
+    Vendors,Products
 }=require('../db');
 
 route.get('/',async(req,res)=>{
+    let includes = []
+    if (req.query.include === 'products') {
+      includes.push({
+        model: Products,
+        attributes: ['id', 'name']
+      })
+    }
 
 
-    const vendors= await Vendors.findAll();
+    const vendors= await Vendors.findAll({
+        include:includes
+    });
     res.send(vendors);
 
 

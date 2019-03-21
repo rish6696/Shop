@@ -1,12 +1,17 @@
 const express=require('express');
 const route=express.Router();
 const{
-    Products
+    Products,Vendors
 }=require('../db');
 
-route.get('/',async(req,res)=>{
 
-    const products=await Products.findAll();
+route.get('/',async(req,res)=>{
+  
+  
+
+    const products=await Products.findAll({
+        include: Vendors
+    });
     res.send(products);
 
 
