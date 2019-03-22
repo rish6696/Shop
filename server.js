@@ -7,6 +7,7 @@ const{
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json())
+app.use('/',express.static(__dirname+'/public'));
 
 const routes={
     vendors:require('./routes/Vendors'),
