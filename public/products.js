@@ -32,6 +32,7 @@ $.get('/products',
 (data)=>{
     $('#tbody').empty();
     data.forEach((object)=>{
+        console.log("hello");
         $('#tbody').append(
             $('<tr>').append(
                 $('<th>').attr('scope','col').text(object.id)
