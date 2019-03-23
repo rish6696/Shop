@@ -11,7 +11,8 @@ route.get('/',async(req,res)=>{
 
     console.log("triggered")
     const products=await Products.findAll({
-        include: Vendors}
+        include: [Vendors]
+      }
     );
     console.log(products);
     res.send(products);

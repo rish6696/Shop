@@ -18,7 +18,7 @@ app.use('/vendors',routes.vendors);
 app.use('/users',routes.users);
 app.use('/products',routes.products);
 
-db.sync()
+db.sync({alter:true})
 .then(()=>{
     app.listen(12345)
 })
